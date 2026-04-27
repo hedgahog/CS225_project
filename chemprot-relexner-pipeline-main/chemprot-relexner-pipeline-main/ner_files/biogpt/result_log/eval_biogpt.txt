@@ -1,0 +1,20 @@
+Starting BioGPT NER Evaluation...
+
+Final Evaluation Metrics:
+Total True Values: 9953
+Correctly Predicted (True Positives): 4703
+Extra Predicted (False Positives): 6594
+Precision: 0.4163
+Recall: 0.4725
+F1-Score: 0.4426
+BioGPT NER Evaluation Completed!
+Starting BioGPT NER Evaluation...
+
+Final Evaluation Metrics:
+Total True Values: 9953
+Correctly Predicted (True Positives): 4703
+Extra Predicted (False Positives): 6594
+Precision: 0.4163
+Recall: 0.4725
+F1-Score: 0.4426
+BioGPT NER Evaluation Completed!

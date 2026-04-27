@@ -1,0 +1,57 @@
+Epoch 1: Train Loss = 0.7526, Val Loss = 0.4651
+New best model saved with validation loss: 0.4651
+Epoch 2: Train Loss = 0.2609, Val Loss = 0.2910
+New best model saved with validation loss: 0.2910
+Epoch 3: Train Loss = 0.1415, Val Loss = 0.2824
+New best model saved with validation loss: 0.2824
+Epoch 4: Train Loss = 0.1060, Val Loss = 0.2776
+New best model saved with validation loss: 0.2776
+Epoch 5: Train Loss = 0.0899, Val Loss = 0.2485
+New best model saved with validation loss: 0.2485
+Epoch 6: Train Loss = 0.0735, Val Loss = 0.2669
+Epoch 7: Train Loss = 0.0663, Val Loss = 0.3005
+Epoch 8: Train Loss = 0.0627, Val Loss = 0.2207
+New best model saved with validation loss: 0.2207
+Epoch 9: Train Loss = 0.0591, Val Loss = 0.3206
+Epoch 10: Train Loss = 0.0673, Val Loss = 0.3442
+Epoch 11: Train Loss = 0.0655, Val Loss = 0.2659
+Epoch 12: Train Loss = 0.0563, Val Loss = 0.2687
+Epoch 13: Train Loss = 0.0521, Val Loss = 0.3889
+Epoch 14: Train Loss = 0.0507, Val Loss = 0.3833
+Epoch 15: Train Loss = 0.0428, Val Loss = 0.3988
+Epoch 16: Train Loss = 0.0583, Val Loss = 0.3279
+Epoch 17: Train Loss = 0.0539, Val Loss = 0.3097
+Epoch 18: Train Loss = 0.0495, Val Loss = 0.3172
+Epoch 19: Train Loss = 0.0411, Val Loss = 0.4587
+Epoch 20: Train Loss = 0.0719, Val Loss = 0.3471
+Epoch 21: Train Loss = 0.0461, Val Loss = 0.3463
+Epoch 22: Train Loss = 0.0431, Val Loss = 0.2715
+Epoch 23: Train Loss = 0.0347, Val Loss = 0.2676
+Epoch 24: Train Loss = 0.0342, Val Loss = 0.2972
+Epoch 25: Train Loss = 0.0352, Val Loss = 0.2956
+Epoch 26: Train Loss = 0.0549, Val Loss = 0.2744
+Epoch 27: Train Loss = 0.0340, Val Loss = 0.2933
+Epoch 28: Train Loss = 0.0326, Val Loss = 0.3909
+Epoch 29: Train Loss = 0.0328, Val Loss = 0.2870
+Epoch 30: Train Loss = 0.0329, Val Loss = 0.3132
+Epoch 31: Train Loss = 0.0383, Val Loss = 0.4245
+Epoch 32: Train Loss = 0.0385, Val Loss = 0.3775
+Epoch 33: Train Loss = 0.0356, Val Loss = 0.3940
+Epoch 34: Train Loss = 0.0343, Val Loss = 0.5073
+Epoch 35: Train Loss = 0.0339, Val Loss = 0.4771
+Epoch 36: Train Loss = 0.0397, Val Loss = 0.4960
+Epoch 37: Train Loss = 0.0445, Val Loss = 0.3953
+Epoch 38: Train Loss = 0.0334, Val Loss = 0.3891
+Epoch 39: Train Loss = 0.0303, Val Loss = 0.3854
+Epoch 40: Train Loss = 0.0315, Val Loss = 0.4242
+Epoch 41: Train Loss = 0.0297, Val Loss = 0.3890
+Epoch 42: Train Loss = 0.0349, Val Loss = 0.4244
+Epoch 43: Train Loss = 0.0371, Val Loss = 0.3581
+Epoch 44: Train Loss = 0.0370, Val Loss = 0.4275
+Epoch 45: Train Loss = 0.0387, Val Loss = 0.4315
+Epoch 46: Train Loss = 0.0357, Val Loss = 0.3618
+Epoch 47: Train Loss = 0.0322, Val Loss = 0.3953
+Epoch 48: Train Loss = 0.0299, Val Loss = 0.3797
+Epoch 49: Train Loss = 0.0306, Val Loss = 0.3834
+Epoch 50: Train Loss = 0.0301, Val Loss = 0.3042
+Training completed!

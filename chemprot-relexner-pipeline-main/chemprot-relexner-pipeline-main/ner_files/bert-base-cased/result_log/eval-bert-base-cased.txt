@@ -1,0 +1,10 @@
+Starting NER Evaluation...
+
+Final Evaluation Metrics:
+Total True Values: 5801
+Correctly Predicted (True Positives): 3333
+Extra Predicted (False Positives): 2695
+Precision: 0.5529
+Recall: 0.5746
+F1-Score: 0.5635
+NER Evaluation Completed!

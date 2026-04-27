@@ -1,0 +1,10 @@
+Starting BioBERT NER Evaluation...
+
+Final Evaluation Metrics:
+Total True Values: 9953
+Correctly Predicted (True Positives): 5529
+Extra Predicted (False Positives): 4749
+Precision: 0.5379
+Recall: 0.5555
+F1-Score: 0.5466
+BioBERT NER Evaluation Completed!
