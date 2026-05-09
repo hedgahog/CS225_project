@@ -1,0 +1,11 @@
+# generated artifacts
+outputs/
+*.graphml
+*.graphml.xml
+.grounding_cache.json
+
+# python
+__pycache__/
+*.pyc
+.venv*/
+.pytest_cache/

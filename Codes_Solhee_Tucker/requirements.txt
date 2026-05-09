@@ -1,0 +1,17 @@
+# Codes_Solhee_Tucker — entity normalization module
+# Tested on Python 3.10
+
+# Core
+gilda>=1.4.0
+tqdm>=4.65
+pandas>=2.0
+networkx>=3.0
+
+# POC notebook + visualization
+jupyter>=1.0
+ipykernel>=6.0
+matplotlib>=3.7
+seaborn>=0.13
+
+# Tests
+pytest>=7.0
