@@ -12,10 +12,22 @@ CS225_project/
 │   ├── rl_files/                      # Relation extraction scripts and outputs
 │   ├── output_kgs/                    # Generated knowledge graph visualizations
 │   └── old_experiments/               # Earlier experiment scripts and outputs
-└── 298Code_Tran_Brian/                # LLM fine-tuning experiments (Google Colab)
-    ├── Datasets.ipynb                 # Dataset exploration notebook
-    └── LLM_Training.ipynb             # Fine-tuning notebook
-                                       # ← Place ChemProt/EU-ADR JSON files here (see below)
+├── 298Code_Tran_Brian/                # LLM fine-tuning experiments (Google Colab)
+│   ├── Datasets.ipynb                 # Dataset exploration notebook
+│   └── LLM_Training.ipynb             # Fine-tuning notebook
+│                                      # ← Place ChemProt/EU-ADR JSON files here (see below)
+└── Codes_Solhee_Tucker/               # Entity normalization & normalized KG pipeline
+    ├── normalize_chemprot.py          # GILDA-based normalization for ChemProt triples
+    ├── normalize_euadr.py             # GILDA-based normalization for EU-ADR triples
+    ├── build_normalized_kg.py         # Builds unified KG from normalized triples
+    ├── grounding.py                   # GILDA grounding utilities
+    ├── compare_kgs.py                 # Comparison between raw and normalized KGs
+    ├── outputs/                       # Normalized triples (.json) and KG (.graphml)
+    ├── poc/                           # PoC threshold study notebook and results
+    └── Chemprot_pipeline_edited/      # Downstream pipeline re-run on normalized KG
+        ├── multi_hop_reasoning_v2.py          # Multi-hop reasoning (input: normalized_unified_kg)
+        ├── filtered_multi_hop.reasoning_v2.py # Filtered reasoning starting from ChemProt edges
+        └── graph_multi_hop_v2.py              # Graph visualization of multi-hop paths
 ```
 
 ## Data Setup
@@ -124,6 +136,8 @@ Key dependencies: `transformers`, `datasets`, `torch`, `networkx`, `scikit-learn
 
 ## Pipeline Overview
 
+### Phase 1 — NER & RE (chemprot-relexner-pipeline-main)
+
 1. **Preprocess ChemProt** — run `rl_files/create_rl_data.py` to generate `rl_files/preprocessed_data/*.csv`
 2. **Train NER models** — `ner_files/{bert-base-cased,bio-bert,biogpt}/ner_train.py`
 3. **Train RE models** — `rl_files/{bert-base-cased,bio-bert,bio-gpt}/train_rl.py`
@@ -131,3 +145,16 @@ Key dependencies: `transformers`, `datasets`, `torch`, `networkx`, `scikit-learn
 5. **Extract relations** — `rl_files/relation_extraction_3_models.py`
 6. **Build knowledge graph** — `merged_kg.py`
 7. **Multi-hop reasoning** — `multi_hop_reasoning.py`, `graph_multi_hop.py`
+
+### Phase 2 — Entity Normalization & Normalized KG (Codes_Solhee_Tucker)
+
+8. **Normalize ChemProt triples** — `normalize_chemprot.py` → `outputs/gilda_normalized_chemprot_triples.json`
+9. **Normalize EU-ADR triples** — `normalize_euadr.py` → `outputs/gilda_normalized_euadr_triples.json`
+10. **Build normalized unified KG** — `build_normalized_kg.py` → `outputs/normalized_unified_kg.graphml`
+11. **Compare raw vs. normalized KG** — `compare_kgs.py` → `outputs/comparison_report.md`
+
+### Phase 3 — Downstream Pipeline on Normalized KG (Codes_Solhee_Tucker/Chemprot_pipeline_edited)
+
+12. **Multi-hop reasoning (normalized)** — `multi_hop_reasoning_v2.py` reads `normalized_unified_kg.graphml`, outputs `inferred_multi_hop_links_normalized.json`
+13. **Filtered multi-hop reasoning** — `filtered_multi_hop.reasoning_v2.py` restricts paths to those starting from ChemProt edges
+14. **Graph visualization (normalized)** — `graph_multi_hop_v2.py` reads `filtered_inferred_links_normalized.json` and plots cross-dataset multi-hop paths
