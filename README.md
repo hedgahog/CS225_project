@@ -21,7 +21,7 @@ CS225_project/
     ├── normalize_euadr.py             # GILDA-based normalization for EU-ADR triples
     ├── build_normalized_kg.py         # Builds unified KG from normalized triples
     ├── grounding.py                   # GILDA grounding utilities
-    ├── compare_kgs.py                 # Comparison between raw and normalized KGs
+    ├── compare_kgs.py                 # Baseline KG builder (string-norm only)
     ├── outputs/                       # Normalized triples (.json) and KG (.graphml)
     ├── poc/                           # PoC threshold study notebook and results
     └── Chemprot_pipeline_edited/      # Downstream pipeline re-run on normalized KG
@@ -151,7 +151,7 @@ Key dependencies: `transformers`, `datasets`, `torch`, `networkx`, `scikit-learn
 8. **Normalize ChemProt triples** — `normalize_chemprot.py` → `outputs/gilda_normalized_chemprot_triples.json`
 9. **Normalize EU-ADR triples** — `normalize_euadr.py` → `outputs/gilda_normalized_euadr_triples.json`
 10. **Build normalized unified KG** — `build_normalized_kg.py` → `outputs/normalized_unified_kg.graphml`
-11. **Compare raw vs. normalized KG** — `compare_kgs.py` → `outputs/comparison_report.md`
+11. **Compare raw vs. normalized KG** — see `Codes_Solhee_Tucker/summary.ipynb`; results in `outputs/comparison_report.md`
 
 ### Phase 3 — Downstream Pipeline on Normalized KG (Codes_Solhee_Tucker/Chemprot_pipeline_edited)
 
