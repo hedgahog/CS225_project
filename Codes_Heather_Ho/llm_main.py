@@ -2,7 +2,7 @@ import os
 import json
 import random
 from openai import OpenAI
-from llm_rubric_judging import llm_judging
+from openairubric_judging import llm_judging
 
 # TODO: calculate total passes and fails
 with open("../chemprot-relexner-pipeline-main/chemprot-relexner-pipeline-main/filtered_inferred_links.json") as f:
@@ -24,7 +24,7 @@ print(system_prompt)
 
 # Sample 150 for judging
 random.seed(42)  # set seed for reproducibility
-sample = random.sample(euadr_paths, 2)
+sample_lst = random.sample(euadr_paths, 4)
 #print(sample)
 
 api_key = os.getenv("OPENAI_API_KEY")
@@ -33,5 +33,5 @@ api_key = os.getenv("OPENAI_API_KEY")
 client = OpenAI()
 
 if __name__ == "__main__":
-    status = llm_judging(sample, system_prompt, client)
+    status = llm_judging(sample_lst, system_prompt, client, model="gpt-5.4")
     print(status)

@@ -1,10 +1,11 @@
-def llm_judging(sample, system_prompt, client, model="gpt-5.4"):
+import json
+def llm_judging(path_json, system_prompt, client, model="gpt-5.4"):
     results = []
     passes = 0
     fails = 0
 
-    for i, sample in enumerate(sample):
-        path_string = json.dumps(sample, indent=2)
+    for i, path in enumerate(path_json):
+        path_string = json.dumps(path, indent=2)
         
 
         response = client.chat.completions.create(
@@ -15,21 +16,21 @@ def llm_judging(sample, system_prompt, client, model="gpt-5.4"):
         )
         
         verdict = response.choices[0].message.content.strip()
-        if verdict.lower() == "pass":
+        if "pass" in verdict.lower():
             passes += 1
-        elif verdict.lower() == "fail":
+        elif "fail" in verdict.lower():
             fails += 1
 
         # Track progress and results
         print(f"Path_number: {i+1}")
         print(path_string)
-        print(f"Verdict: {verdict}")
+        print(verdict)
         print("\n\n")
 
         # Store results
         results.append({
             "path_number": i+1,
-            "path": sample,
+            "path": path,
             "verdict": verdict
         })
     print(f"Total Passes: {passes}")
@@ -45,6 +46,5 @@ def llm_judging(sample, system_prompt, client, model="gpt-5.4"):
     return "Done judging and results saved to judging_results.txt"
 
    
-status = llm_judging(sample, system_prompt, client)
-print(status)
+
         

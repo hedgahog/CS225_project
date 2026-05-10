@@ -6,8 +6,7 @@ and EU-ADR labels. Please use this knowledge to apply the rubric checklist for e
 Please also not that the criteria on the drug/disease/protein path is for the 'path' hops, NOT the 'relations' hops.
 Based on the criteria and its weights, please produce a verdict of PASS or FAIL for each path.
 Please also provide a brief descriptioin based on the rubric to why the path passed or failed.
-Please state the total number of PASSES and FAILS for all the paths at the very end of the evaluation.
- DO NOT give me the number of passes/fails for each path.
+
 
 EU-ADR labels: NA=negative association, PA=positive association, SA=speculative association
 ChemProt relations: 
