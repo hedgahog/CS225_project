@@ -1,36 +1,3 @@
-import os
-import json
-import random
-# TODO: calculate total passes and fails
-with open("../chemprot-relexner-pipeline-main/chemprot-relexner-pipeline-main/filtered_inferred_links.json") as f:
-    all_paths = json.load(f)
-
-# Filter to only cross-dataset paths (contain euadr relations)
-euadr_paths = [
-    p for p in all_paths 
-    if any(r[1] == "euadr" for r in p["relations"])
-]
-
-#print(f"Cross-dataset paths: {len(euadr_paths)}")  # 2178'''
-
-# load prompt.txt
-with open("prompt.txt") as f:
-    system_prompt = f.read()
-
-print(system_prompt)
-
-# Sample 150 for judging
-random.seed(42)  # set seed for reproducibility
-sample = random.sample(euadr_paths, 2)
-#print(sample)
-
-api_key = os.getenv("OPENAI_API_KEY")
-
-from openai import OpenAI
- # Using openai
-client = OpenAI()
-
-
 def llm_judging(sample, system_prompt, client, model="gpt-5.4"):
     results = []
 
@@ -39,7 +6,7 @@ def llm_judging(sample, system_prompt, client, model="gpt-5.4"):
         
 
         response = client.chat.completions.create(
-            model="gpt-5.4",
+            model=model,
             messages=[
                 {"role": "system", "content": system_prompt},
                 {"role": "user", "content": path_string}]
