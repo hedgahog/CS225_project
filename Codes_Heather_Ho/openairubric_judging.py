@@ -16,10 +16,10 @@ def llm_judging(path_json, system_prompt, client, model="gpt-5.4"):
         )
         
         verdict = response.choices[0].message.content.strip()
-        if "pass" in verdict.lower():
-            passes += 1
-        elif "fail" in verdict.lower():
+        if "Verdict: FAIL" in verdict:
             fails += 1
+        elif "Verdict: PASS" in verdict:
+            passes += 1
 
         # Track progress and results
         print(f"Path_number: {i+1}")

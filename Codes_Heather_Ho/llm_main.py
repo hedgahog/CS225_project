@@ -4,7 +4,6 @@ import random
 from openai import OpenAI
 from openairubric_judging import llm_judging
 
-# TODO: calculate total passes and fails
 with open("../chemprot-relexner-pipeline-main/chemprot-relexner-pipeline-main/filtered_inferred_links.json") as f:
     all_paths = json.load(f)
 
