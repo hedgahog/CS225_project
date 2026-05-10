@@ -23,3 +23,6 @@ ChemProt_Corpus/
 298Code_Tran_Brian/chemprot_test.json
 298Code_Tran_Brian/chemprot_validation.json
 298Code_Tran_Brian/euadr_full.json
+
+# json files
+*.json
