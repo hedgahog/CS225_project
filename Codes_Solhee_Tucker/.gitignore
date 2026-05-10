@@ -1,8 +1,9 @@
 # generated artifacts
 outputs/
-*.graphml
-*.graphml.xml
-.grounding_cache.json
+!outputs/comparison_report.md
+  *.graphml
+  *.graphml.xml
+  .grounding_cache.json
 
 # python
 __pycache__/
