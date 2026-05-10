@@ -1,7 +1,7 @@
 import os
 import json
 import random
-
+# TODO: calculate total passes and fails
 with open("../chemprot-relexner-pipeline-main/chemprot-relexner-pipeline-main/filtered_inferred_links.json") as f:
     all_paths = json.load(f)
 
@@ -11,19 +11,23 @@ euadr_paths = [
     if any(r[1] == "euadr" for r in p["relations"])
 ]
 
-print(f"Cross-dataset paths: {len(euadr_paths)}")  # 2178'''
+#print(f"Cross-dataset paths: {len(euadr_paths)}")  # 2178'''
+
+# load prompt.txt
+with open("prompt.txt") as f:
+    system_prompt = f.read()
+
+print(system_prompt)
 
 # Sample 150 for judging
 random.seed(42)  # set seed for reproducibility
-sample = random.sample(euadr_paths, 30)
+sample = random.sample(euadr_paths, 2)
 #print(sample)
 
 api_key = os.getenv("OPENAI_API_KEY")
 
 from openai import OpenAI
 client = OpenAI()
-
-system_prompt = "You are a helpful and precise assistant for checking the correctness of inferred relations between chemical entities and diseases. Given a path of relations, determine if the final inferred relation is correct based on the intermediate relations. Output 'PASS' if the final relation is supported by the intermediate relations, and 'FAIL' otherwise. Explain your reasoning briefly. Please state the overall number of PASSES and FAILS at the end of your evaluation."
 
 results = []
 
