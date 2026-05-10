@@ -1,6 +1,6 @@
 import json
 import random
-with open("filtered_inferred_links.json") as f:
+with open("filtered_inferred_links_normalized.json") as f:
     all_paths = json.load(f)
 
 '''# Filter to only cross-dataset paths (contain euadr relations)
@@ -13,11 +13,19 @@ print(f"Cross-dataset paths: {len(euadr_paths)}")  # 2178'''
 
 # Sample 150 for judging
 random.seed(42)  # set seed for reproducibility
-sample = random.sample(all_paths, 20)
-print(sample)
+samples = random.sample(all_paths, 5)
+#Add path ids to samples
+for i, sample in enumerate(samples):
+    print(f"Path_number: {i+1}")
+    print(json.dumps(sample, indent=2))
+    print("\n\n")
+
+    
 
 
-def format_path_for_judging(path): 
+
+
+'''def format_path_for_judging(path): 
     return json.dumps(path, indent=2)
 
-print(format_path_for_judging(sample[0]))
+print(format_path_for_judging(sample[0]))'''
