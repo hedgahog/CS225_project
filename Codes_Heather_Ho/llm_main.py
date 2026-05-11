@@ -7,13 +7,7 @@ from openai_rubric_judging import llm_judging
 with open("../chemprot-relexner-pipeline-main/chemprot-relexner-pipeline-main/filtered_inferred_links.json") as f:
     all_paths = json.load(f)
 
-# Filter to only cross-dataset paths (contain euadr relations)
-euadr_paths = [
-    p for p in all_paths 
-    if any(r[1] == "euadr" for r in p["relations"])
-]
-
-#print(f"Cross-dataset paths: {len(euadr_paths)}")  # 2178'''
+# print(f"Total paths loaded: {len(all_paths)}") # total 34760
 
 # load regular prompt.txt
 with open("prompt.txt") as f:
@@ -25,7 +19,7 @@ with open("rubric_prompt.txt") as f:
 
 # Sample 150 for judging
 random.seed(42)  # set seed for reproducibility
-sample_lst = random.sample(euadr_paths, 150)
+sample_lst = random.sample(all_paths, 100)  # sample 100 paths for judging
 #print(sample)
 
 api_key = os.getenv("OPENAI_API_KEY")
