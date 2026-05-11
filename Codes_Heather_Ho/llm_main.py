@@ -25,7 +25,7 @@ with open("rubric_prompt.txt") as f:
 
 # Sample 150 for judging
 random.seed(42)  # set seed for reproducibility
-sample_lst = random.sample(euadr_paths, 5)
+sample_lst = random.sample(euadr_paths, 150)
 #print(sample)
 
 api_key = os.getenv("OPENAI_API_KEY")
