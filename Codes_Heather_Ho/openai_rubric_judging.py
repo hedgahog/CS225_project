@@ -16,9 +16,9 @@ def llm_judging(path_json, system_prompt, client, model="gpt-5.4"):
         )
         
         verdict = response.choices[0].message.content.strip()
-        if "Verdict: FAIL" in verdict:
+        if "FAIL" in verdict:
             fails += 1
-        elif "Verdict: PASS" in verdict:
+        elif "PASS" in verdict:
             passes += 1
 
         # Track progress and results
@@ -35,15 +35,9 @@ def llm_judging(path_json, system_prompt, client, model="gpt-5.4"):
         })
     print(f"Total Passes: {passes}")
     print(f"Total Fails: {fails}")
-        # Load results into a text file
-    with open(f"judging_results_{model}.txt", "w") as f:
-        for result in results:
-            f.write(f"Path_number: {result['path_number']}\n")
-            f.write(json.dumps(result['path'], indent=2) + "\n")
-            f.write(f"Verdict: {result['verdict']}\n\n")
-        f.write(f"Total Passes: {passes}\n")
-        f.write(f"Total Fails: {fails}\n")
-    return "Done judging and results saved to judging_results.txt"
+    
+   
+    return results
 
    
 
