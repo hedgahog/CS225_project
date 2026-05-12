@@ -24,6 +24,7 @@ if __name__ == "__main__":
 
     # Sample a small subset (adjust size for clarity)
     sample_size = 15
+    random.seed(42)
     sampled_paths = random.sample(combined_paths, min(sample_size, len(combined_paths)))
 
     # Build the graph
