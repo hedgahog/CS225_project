@@ -4,22 +4,22 @@ import random
 from openai import OpenAI
 from openai_rubric_judging import llm_judging
 
-with open("../chemprot-relexner-pipeline-main/chemprot-relexner-pipeline-main/filtered_inferred_links.json") as f:
+with open("json_input/filtered_inferred_links_normalized_name.json") as f:
     all_paths = json.load(f)
 
 # print(f"Total paths loaded: {len(all_paths)}") # total 34760
 
 # load regular prompt.txt
-with open("prompt.txt") as f:
+with open("prompts/prompt.txt") as f:
     system_prompt = f.read()
 
 # load rubric prompt.txt
-with open("rubric_prompt.txt") as f:
+with open("prompts/rubric_prompt.txt") as f:
     rubric_system_prompt = f.read()
 
 # Sample 150 for judging
 random.seed(42)  # set seed for reproducibility
-sample_lst = random.sample(all_paths, 100)  # sample 100 paths for judging
+sample_lst = random.sample(all_paths, 200)  # sample 200 paths for judging
 #print(sample)
 
 api_key = os.getenv("OPENAI_API_KEY")
@@ -34,9 +34,9 @@ if __name__ == "__main__":
     rubric_results = llm_judging(sample_lst, rubric_system_prompt, client, model="gpt-5.4")
 
     # Save results to text files
-    with open("basic_judging_results.txt", "w") as f:
+    with open("basic_judging_results_norm.txt", "w") as f:
         json.dump(basic_results, f, indent=2, ensure_ascii=False)
-    with open("rubric_judging_results.txt", "w") as f:
+    with open("rubric_judging_results_norm.txt", "w") as f:
         json.dump(rubric_results, f, indent=2, ensure_ascii=False)
     
     # Compare results
