@@ -22,6 +22,7 @@ random.seed(42)  # set seed for reproducibility
 sample_lst = random.sample(all_paths, 200)  # sample 200 paths for judging
 #print(sample)
 
+# Set up OpenAI client
 api_key = os.getenv("OPENAI_API_KEY")
 
  # Using openai
